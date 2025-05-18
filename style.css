@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,502;1,502&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+  background: #dfe7ef;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  height: 90vh;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  padding: 0;
+  margin: 0;
+  width: 25px;
+  align-self: center;
+}
+
+.mediaPlayer {
+  background-color: #eef3f7;
+  width: 400px;
+  height: auto;
+  align-self: center;
+  border-radius: 0.5cm;
+  padding: 30px 0 0 0;
+  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+}
+
+.controllers {
+  display: flex;
+  justify-content: end;
+}
+
+#media-image {
+  width: 290px;
+  height: 290px;
+  transform: translate(-50px);
+  border-radius: 0.5cm;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  position: absolute;
+}
+
+.controllers .icons_box {
+  width: 20%;
+  position: relative;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.icons_box svg {
+  width: 25px;
+  align-self: center;
+  cursor: pointer;
+}
+
+#favourite,
+#link,
+#previous,
+#next {
+  padding: 15px;
+  fill: #acb8cc;
+  overflow: visible;
+  border-radius: 50%;
+}
+
+#favourite:hover,
+#link:hover,
+#previous:hover,
+#next:hover {
+  animation: iconHover 0.4s forwards;
+}
+
+#favourite.true {
+  fill: #ff0000;
+}
+
+.icons_box #pause-play {
+  border: 10px solid #fff;
+  border-radius: 50%;
+  margin: 20px 0 0 0;
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 11px 6px rgba(172, 184, 204, 0.45));
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+#play {
+  translate: 3px;
+}
+
+#media-info {
+  margin: 0 54px;
+}
+
+#media-info #name {
+  margin: 0;
+
+}
+
+#progress {
+  width: 80%;
+  margin: 30px auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#duration {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  align-self: flex-end;
+  color: #a3b3ce;
+}
+
+#current-time {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #a3b3ce;
+}
+
+#progress-bar {
+  background-color: #d0d8e6;
+  width: auto;
+  height: 6px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+#progress-current {
+  width: 0%;
+  height: 100%;
+  border-radius: px;
+  background-color: #a3b3ce;
+}
+
+#albume {
+  position: absolute;
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 70vh;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  background: #a3b3ce;
+  padding: 50px 0;
+  border-radius: 10px;
+}
+
+#albume::-webkit-scrollbar {
+  width: 10px;
+}
+
+#albume::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* لون خلفية المسار */
+}
+
+#albume::-webkit-scrollbar-thumb {
+  background: #555;
+  /* لون المقبض */
+  border-radius: 5px;
+}
+
+#albume::-webkit-scrollbar-thumb:hover {
+  background: #532ab9;
+  /* لون المقبض عند المرور عليه */
+}
+
+
+.mediaBox {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.mediaBox:hover {
+  animation: mediaHover 0.4s ease forwards;
+}
+
+.mediaBox img {
+  width: 30%;
+}
+
+.mediaBox .mediaInfo {
+  width: 60%;
+  padding: 0 50px;
+}
+
+@keyframes iconHover {
+  0% {
+    background-size: 0;
+    background-color: transparent;
+    fill: #a3b3ce;
+  }
+
+  100% {
+    background-size: auto;
+    background-color: #fff;
+    fill: #532ab9;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+}
+
+@keyframes mediaHover {
+  0% {
+    background: transparent
+  }
+
+  100% {
+    background:#522ab95e ;
+  }
+}
