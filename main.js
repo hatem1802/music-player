@@ -1,5 +1,4 @@
-const musics = [
-  {
+const musics = [{
     id: 1,
     name: "Mekanın Sahibi",
     artist: "Norm Ender",
@@ -99,7 +98,7 @@ const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 const albume = document.getElementById("albume");
 
-let currentMusic = musics[Math.floor(Math.random() * 10)];
+let currentMusic = musics[Math.floor(Math.random() * 9)];
 let audio = new Audio(currentMusic.source);
 
 playPause.addEventListener("click", () => {
@@ -149,8 +148,11 @@ function playMusic(currentMusic, audio) {
   mediaName.innerHTML = currentMusic.name;
   mediaArtist.innerHTML = currentMusic.artist;
   mediaImage.src = currentMusic.cover;
-  link.href= currentMusic.url
-  duration.innerHTML = `${audio.duration < 6000 ? "0" : ""}${Math.floor(audio.duration/60)}:${Math.floor(audio.duration%60) < 10 ? "0" : ""}${Math.floor(audio.duration%60)}` || "00:00";
+  link.href = currentMusic.url;
+  const setDuration = setInterval(() => {
+    duration.innerHTML = `${audio.duration < 6000 ? "0" : ""}${Math.floor(audio.duration/60)}:${Math.floor(audio.duration%60) < 10 ? "0" : ""}${Math.floor(audio.duration%60)}` || "00:00";
+    clearInterval(setDuration);
+  }, 100);
   favourite.classList.toggle('true', currentMusic.favorited === true);
   audio.play();
 };
@@ -159,9 +161,7 @@ function changeMusic() {
   audio.pause();
   currentMusic = musics[Math.floor(Math.random() * 10)];
   audio = new Audio(currentMusic.source);
-  audio.addEventListener("loadedmetadata", () => {
-    playMusic(currentMusic, audio)
-  });
+  playMusic(currentMusic, audio);
   audio.play();
 }
 
@@ -208,8 +208,8 @@ for (let i = 0; i < mediaBox.length; i++) {
     audio.pause();
     currentMusic = musics[i];
     audio = new Audio(currentMusic.source);
-    audio.addEventListener("loadedmetadata", () => {
-      playMusic(currentMusic, audio)
-    });
+    // audio.addEventListener("loadedmetadata", () => {
+    playMusic(currentMusic, audio)
+    // });
   })
 }
