@@ -208,8 +208,6 @@ for (let i = 0; i < mediaBox.length; i++) {
     audio.pause();
     currentMusic = musics[i];
     audio = new Audio(currentMusic.source);
-    // audio.addEventListener("loadedmetadata", () => {
-    playMusic(currentMusic, audio)
-    // });
+    playMusic(currentMusic, audio);
   })
 }
